@@ -36,3 +36,6 @@ The following modules are integrated into the app:
 - https://blog.expo.io/building-a-minimalist-weather-app-with-react-native-and-expo-fe7066e02c09
 - https://openweathermap.org
 - https://expo.github.io/vector-icons/
+- https://www.styled-components.com
+- https://github.com/yahoo/react-intl/wiki
+
