@@ -4,7 +4,7 @@ import {Ionicons} from '@expo/vector-icons';
 import HomeScreen from './../Screens/HomeScreen';
 import WeatherScreen from './../Screens/WeatherScreen';
 
-const tabBarVisible = function (navigation) {
+const tabBarVisible = function (navigation: any) {
     const routes = navigation.state.routes;
     const params = routes ? routes[routes.length - 1].params : null;
     let visible  = true;
@@ -18,20 +18,21 @@ const AppStack = createBottomTabNavigator({
     Home: HomeScreen,
     Weather: WeatherScreen
 }, {
-    navigationOptions: function ({navigation}) {
+    defaultNavigationOptions: function ({navigation}) {
         return {
             tabBarIcon: function ({focused, tintColor}) {
                 const { routeName } = navigation.state;
-                let iconName;
+                let iconName: string = '';
+                let activeTintColor: string = tintColor || '#FFFFFF';
                 switch (routeName) {
                     case 'Home':
-                        iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+                        iconName = `ios-home`;
                         break;
                     case 'Weather':
-                        iconName = `ios-sunny${focused ? '' : '-outline'}`;
+                        iconName = `ios-sunny`;
                         break;
                 }
-                return <Ionicons name={iconName} size={25} color={tintColor}/>;
+                return <Ionicons name={iconName} size={25} color={activeTintColor}/>;
             },
             tabBarVisible: tabBarVisible(navigation)
         };

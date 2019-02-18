@@ -32,7 +32,11 @@ function weatherRequest (
                 weatherDescription: weatherDescription
             };
         case GET_WEATHER_ERROR:
-            break;
+            return {
+                ...state,
+                networkRequestInProgress: false,
+                weatherDescription: `Error in getting weather: ${JSON.stringify(action.error)}`
+            };
         default:
             return state;
     }
